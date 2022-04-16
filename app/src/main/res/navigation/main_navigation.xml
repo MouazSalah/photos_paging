@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_navigation.xml"
+    app:startDestination="@id/profileFragment">
+
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.bosta.bostaapp.features.fragments.profile.ui.ProfileFragment"
+        android:label="ProfileFragment">
+        <action
+            android:id="@+id/action_profileFragment_to_photosFragment"
+            app:destination="@id/photosFragment"
+            app:popUpTo="@id/photosFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/photosFragment"
+        android:name="com.bosta.bostaapp.features.fragments.photos.ui.PhotosFragment"
+        android:label="PhotosFragment">
+        <argument
+            android:name="album_id"
+            app:argType="integer" />
+        <argument
+            android:name="album_name"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_photosFragment_to_photoViewFragment"
+            app:destination="@id/photoViewFragment"
+            app:popUpTo="@id/photosFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/photoViewFragment"
+        android:name="com.bosta.bostaapp.features.fragments.photoview.PhotoViewFragment"
+        android:label="PhotoViewFragment">
+        <argument
+            android:name="photo_url"
+            app:argType="string" />
+    </fragment>
+
+</navigation>
