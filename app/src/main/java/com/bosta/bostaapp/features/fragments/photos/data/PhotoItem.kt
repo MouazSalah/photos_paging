@@ -1,14 +1,16 @@
 package com.bosta.bostaapp.features.fragments.photos.data
 
-import com.bosta.bostaapp.base.BaseParcelable
+import com.bosta.bostaapp.features.fragments.photos.ui.BasePaginationParcelable
+import kotlinx.parcelize.Parcelize
 
-@kotlinx.parcelize.Parcelize
-data class PhotoItem(
-    var photoId: Int,
-    var albumId: Int,
-    var photoTitle: String,
-    var url: String,
-    var thumbnailUrl: String,
-) : BaseParcelable {
-    override fun unique(): Any = photoId
+@Parcelize
+data class PhotoItem (
+    val albumId : Int,
+    val id : Int,
+    val title : String,
+    val url : String,
+    val thumbnailUrl : String,
+    override var viewType: Int
+) : BasePaginationParcelable {
+    override fun unique(): Any = id
 }

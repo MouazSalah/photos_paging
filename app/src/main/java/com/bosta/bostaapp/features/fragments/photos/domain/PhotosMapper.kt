@@ -11,10 +11,11 @@ object PhotosMapper : BaseListMapper<List<PhotosResponseItem>, PhotosResponseIte
 
     override fun mapItem(res: PhotosResponseItem?): PhotoItem =
         PhotoItem(
-            photoId = res?.id ?: -1,
             albumId = res?.id ?: -1,
-            photoTitle = res?.title ?: "",
             url = res?.url ?: "", // In Case of error will load Bosta Logo instead of it
             thumbnailUrl = res?.thumbnailUrl ?: "",
+            id = res?.id ?: 0,
+            title = res?.title ?: "",
+            viewType = 0,
         )
 }

@@ -36,6 +36,7 @@ android {
 
     buildFeatures {
         viewBinding = true
+        dataBinding = true
     }
 }
 
@@ -85,4 +86,6 @@ dependencies {
     //zoom ImageView
     /* This library for photo view with zooming options */
     implementation 'com.github.chrisbanes:PhotoView:2.3.0'
+
+    implementation "androidx.paging:paging-runtime-ktx:3.1.1"
 }

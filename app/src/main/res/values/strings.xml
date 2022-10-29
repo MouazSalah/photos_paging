@@ -3,4 +3,5 @@
     <string name="title_profile">Profile</string>
     <string name="no_results_found">No Results Found</string>
     <string name="label_search_in_images">Search in images...</string>
+    <string name="retry">Retry</string>
 </resources>

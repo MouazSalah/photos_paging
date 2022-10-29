@@ -3,7 +3,7 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/main_navigation.xml"
-    app:startDestination="@id/profileFragment">
+    app:startDestination="@id/photosFragment">
 
     <fragment
         android:id="@+id/profileFragment"
@@ -19,12 +19,6 @@
         android:id="@+id/photosFragment"
         android:name="com.bosta.bostaapp.features.fragments.photos.ui.PhotosFragment"
         android:label="PhotosFragment">
-        <argument
-            android:name="album_id"
-            app:argType="integer" />
-        <argument
-            android:name="album_name"
-            app:argType="string" />
         <action
             android:id="@+id/action_photosFragment_to_photoViewFragment"
             app:destination="@id/photoViewFragment"

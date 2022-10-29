@@ -11,7 +11,9 @@
         <entry key="app/src/main/res/layout/fragment_photos.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.35625" />
         <entry key="app/src/main/res/layout/item_album.xml" value="0.35625" />
+        <entry key="app/src/main/res/layout/item_deleted_view.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/item_photo.xml" value="0.35625" />
+        <entry key="app/src/main/res/layout/paging_footer_view.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/raw_follower.xml" value="0.35625" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.131" />
       </map>
