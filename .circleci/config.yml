@@ -1,0 +1,32 @@
+# .circleci/config.yml
+
+version: 2.1
+
+jobs:
+  try-first-job:
+    docker:
+      - image: cimg/base:2022.05
+    steps:
+      - run: echo "I am a job name try first job within workflow named "
+
+  try-second-job:
+    docker:
+      - image: circleci/android:api-30-node
+        environment:
+          JAVA_HOME: "/Library/Java/JavaVirtualMachines/jdk-17.jdk/Contents/Home"
+    steps:  # <-- Add the steps key here.
+      - checkout
+      - run:
+          name: Install Dependencies
+          command: bundle install
+      - run:
+          name: Build (with JAVA_HOME set)
+          command: ./gradlew build
+      - run:
+          name: fastlane
+          command: bundle exec fastlane uploadBuildToFirebase
+
+workflows:
+  try_first_workflow:
+    jobs:
+      - try-second-job

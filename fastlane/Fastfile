@@ -1,0 +1,64 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+default_platform(:android)
+
+platform :android do
+  before_all do
+    setup_circle_ci
+  end
+
+  desc "Runs all the tests"
+  lane :test do
+    gradle(task: "test")
+  end
+
+ lane :uploadBuildToFirebase do
+       gradle(task: "clean")
+       gradle(task: "assembleRelease")
+         firebase_app_distribution(
+           app: "1:334977791104:android:a2086173c5bbecade82265",
+           firebase_cli_token: "1//034SHGaVob1UqCgYIARAAGAMSNwF-L9Ir8c_yjjLPo4J21ienYFIFy5ZS1dFVNftdt609W7KBRy8g2dyZn3LkV9ccsloxcKAV0UU",
+           groups: "My Group",
+           release_notes: "First Fastlane Build",
+          )
+ end
+
+ lane :generateAPKS do
+       gradle(task: "clean")
+       generateDebugMouazAPK
+       generateReleaseMouazAPK
+  end
+
+  desc "generate debug build by Mouaz Salah"
+  lane :generateDebugMouazAPK do
+        gradle(task: "assembleDebug")
+  end
+
+  desc "generate release build by Mouaz Salah"
+  lane :generateReleaseMouazAPK do
+        gradle(task: "assembleRelease" )
+  end
+
+  desc "Submit a new Beta Build to Crashlytics Beta"
+  lane :beta do
+    gradle(task: "clean assembleRelease")
+  end
+
+  desc "Deploy a new version to the Google Play"
+  lane :deploy do
+    gradle(task: "clean assembleRelease")
+    upload_to_play_store
+  end
+end
